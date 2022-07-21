@@ -6,8 +6,9 @@ using TMPro;
 public class BodyGuards : MonoBehaviour
 {
     public LayerMask interactableLayerMask = 12;
-    public GameObject interactPanel, playerDisable, playerCam, robBezos, sign, guards, collider;
+    public GameObject interactPanel, playerDisable, playerCam, robBezos, sign, guards, collider, GuardDialogue, playerFull, Guardcam, AggresedGuard, defaultGuard;
     public TextMeshProUGUI interactText;
+    public Outline houseOutline;
 
 
     // Start is called before the first frame update
@@ -55,7 +56,12 @@ public class BodyGuards : MonoBehaviour
                 {
                     if (hit.collider.gameObject.name == "InteractableThing" || hit.collider.gameObject.name == "InteractableThing (1)")
                     {
-                        // get a seperate dialogue going
+                        playerFull.SetActive(false);
+                        GuardDialogue.SetActive(true);
+                        Guardcam.SetActive(true);
+                        AggresedGuard.SetActive(true);
+                        defaultGuard.SetActive(false);
+                        houseOutline.enabled = false;
                     }
                 }
 
